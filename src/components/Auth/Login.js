@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import StyledButton from "../../styles/elements/Button";
 import {
   FormWrapper,
@@ -91,6 +92,9 @@ function Login(props) {
           {login ? "create an account?" : "already have an account?"}
         </StyledButton>
       </StyledForm>
+      <div>
+        <Link to="/forgot">Forgot password?</Link>
+      </div>
     </FormWrapper>
   );
 }

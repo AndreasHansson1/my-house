@@ -21,7 +21,14 @@ const StyledLink = styled(NavLink)`
   margin: 0 0.5rem;
 `;
 
-const Divider = styled.div``;
+const Divider = styled.div`
+  margin: 0 0.5rem;
+`;
+
+const LogoutWrapper = styled.div`
+  display: flex;
+  white-space: nowrap;
+`;
 
 function Header() {
   const { user, firebase } = useContext(FirebaseContext);
@@ -38,12 +45,24 @@ function Header() {
         <StyledLink to="/top">top</StyledLink>
         <Divider>|</Divider>
         <StyledLink to="/search">search</StyledLink>
-        <Divider>|</Divider>
-        <StyledLink to="/create">submit</StyledLink>
+        {user && (
+          <>
+            <Divider>|</Divider>
+            <StyledLink to="/create">submit</StyledLink>
+          </>
+        )}
       </Flex>
-      <div>
-        <StyledLink to="/login">login</StyledLink>
-      </div>
+      <LogoutWrapper>
+        {user ? (
+          <>
+            <h4>{user.displayName}</h4>
+            <Divider> | </Divider>
+            <div onClick={() => firebase.logout()}>logout</div>
+          </>
+        ) : (
+          <StyledLink to="/login">login</StyledLink>
+        )}
+      </LogoutWrapper>
     </StyledHeader>
   );
 }
