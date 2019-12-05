@@ -78,3 +78,35 @@ export const StyledInput = styled.input`
     color: var(--color-white);
   }
 `;
+
+export const StyledTextarea = styled.textarea`
+  padding: 1rem 2rem;
+  margin: 0.5rem 0;
+  background-color: var(--color-greyish-dark);
+  color: var(--color-white);
+  /* font-size: 1.4rem; */
+  font-weight: 500;
+  border: ${props =>
+    props.error ? "1px solid var(--color-error-color)" : "none"};
+  border-radius: 5px;
+
+  &::placeholder {
+    color: var(--color-white);
+  }
+`;
+
+export const StyledSelect = styled.select`
+  padding: 1rem 2rem;
+  margin: 0.5rem 0;
+  background-color: var(--color-greyish-dark);
+  color: var(--color-white);
+  /* font-size: 1.4rem; */
+  font-weight: 500;
+  border: ${props =>
+    props.error ? "1px solid var(--color-error-color)" : "none"};
+  border-radius: 5px;
+
+  &::placeholder {
+    color: var(--color-white);
+  }
+`;

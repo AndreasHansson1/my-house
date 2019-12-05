@@ -3,12 +3,12 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import styled from "styled-components";
 
 import Header from "./Header";
-import CreateLink from "./Link/CreateLink";
+import CreateTodo from "./Todo/CreateTodo";
 import Login from "./Auth/Login";
 import ForgotPassword from "./Auth/ForgotPassword";
-import SearchLinks from "./Link/SearchLinks";
-import LinkList from "./Link/LinkList";
-import LinkDetail from "./Link/LinkDetail";
+import SearchTodos from "./Todo/SearchTodos";
+import TodoList from "./Todo/TodoList";
+import TodoDetail from "./Todo/TodoDetail";
 import useAuth from "../components/Auth/useAuth";
 import firebase, { FirebaseContext } from "../firebase";
 
@@ -27,13 +27,13 @@ function App() {
         <RouteContainer></RouteContainer>
         <Switch>
           <Route exact path="/" render={() => <Redirect to="new/1" />} />
-          <Route path="/create" component={CreateLink} />
+          <Route path="/create" component={CreateTodo} />
           <Route path="/login" component={Login} />
           <Route path="/forgot" component={ForgotPassword} />
-          <Route path="/search" component={SearchLinks} />
-          <Route path="/top" component={LinkList} />
-          <Route path="/new/:page" component={LinkList} />
-          <Route path="/link/:linkId" component={LinkDetail} />
+          <Route path="/search" component={SearchTodos} />
+          <Route path="/top" component={TodoList} />
+          <Route path="/new/:page" component={TodoList} />
+          <Route path="/todo/:todoId" component={TodoDetail} />
         </Switch>
       </FirebaseContext.Provider>
     </BrowserRouter>
