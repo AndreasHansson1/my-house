@@ -41,11 +41,9 @@ function CreateTodo(props) {
         title,
         description,
         category,
-        postedBy: {
-          id: user.uid,
-          name: user.displayName
-        },
-        created: Date.now()
+        uid: user.uid,
+        createdBy: user.displayName,
+        createdAt: Date.now()
       };
       firebase.db.collection("todos").add(newTodo);
       props.history.push("/");

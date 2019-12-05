@@ -32,7 +32,6 @@ const LogoutWrapper = styled.div`
 
 function Header() {
   const { user, firebase } = useContext(FirebaseContext);
-  console.log(user);
   return (
     <StyledHeader>
       <Flex>
