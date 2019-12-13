@@ -36,18 +36,12 @@ function Header() {
     <StyledHeader>
       <Flex>
         <h1>Logo</h1>
-        <StyledLink to="/">
-          <strong>Todo News</strong>
-        </StyledLink>
-        <StyledLink to="/">New</StyledLink>
-        <Divider>|</Divider>
-        <StyledLink to="/top">top</StyledLink>
-        <Divider>|</Divider>
-        <StyledLink to="/search">search</StyledLink>
+        {/* <StyledLink to="/">New</StyledLink> */}
         {user && (
           <>
+            <StyledLink to="/">Todos</StyledLink>
             <Divider>|</Divider>
-            <StyledLink to="/create">submit</StyledLink>
+            <StyledLink to="/create">Add todo</StyledLink>
           </>
         )}
       </Flex>

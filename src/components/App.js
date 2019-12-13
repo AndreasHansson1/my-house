@@ -6,9 +6,9 @@ import Header from "./Header";
 import CreateTodo from "./Todo/CreateTodo";
 import Login from "./Auth/Login";
 import ForgotPassword from "./Auth/ForgotPassword";
-import SearchTodos from "./Todo/SearchTodos";
 import TodoList from "./Todo/TodoList";
 import TodoDetail from "./Todo/TodoDetail";
+
 import useAuth from "../components/Auth/useAuth";
 import firebase, { FirebaseContext } from "../firebase";
 
@@ -26,13 +26,11 @@ function App() {
         </AppContainer>
         <RouteContainer></RouteContainer>
         <Switch>
-          <Route exact path="/" render={() => <Redirect to="new/1" />} />
+          <Route exact path="/" render={() => <Redirect to="todos" />} />
           <Route path="/create" component={CreateTodo} />
           <Route path="/login" component={Login} />
           <Route path="/forgot" component={ForgotPassword} />
-          <Route path="/search" component={SearchTodos} />
-          <Route path="/top" component={TodoList} />
-          <Route path="/new/:page" component={TodoList} />
+          <Route path="/todos" component={TodoList} />
           <Route path="/todo/:todoId" component={TodoDetail} />
         </Switch>
       </FirebaseContext.Provider>

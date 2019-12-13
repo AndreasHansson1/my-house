@@ -25,7 +25,9 @@ class Firebase {
   }
 
   async logout() {
-    await this.auth.signOut();
+    await this.auth.signOut().then(() => {
+      window.location.href = "/login";
+    });
   }
 
   async resetPassword(email) {
